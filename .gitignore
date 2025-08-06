@@ -10,3 +10,4 @@ libsioclient.a
 sio_test
 .DS_Store
 .cache/
+local_install
