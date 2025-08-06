@@ -51,6 +51,7 @@ set(ALL_SRC
     "src/internal/sio_packet.cpp"
 )
 add_library(sioclient ${ALL_SRC})
+set_property(TARGET sioclient PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 if(USE_SUBMODULES)
     set(MODULE_INCLUDE_DIRS
@@ -94,6 +95,7 @@ find_package(OpenSSL)
 
 if(OPENSSL_FOUND)
     add_library(sioclient_tls ${ALL_SRC})
+    set_property(TARGET sioclient_tls PROPERTY POSITION_INDEPENDENT_CODE ON)
     target_include_directories(sioclient_tls PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
